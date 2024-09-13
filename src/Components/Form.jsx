@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useContextGlobal } from './utils/global.context';
+import styles from "../Styles/form.module.css"
 
 const Form = () => {
   const { state } = useContextGlobal()
@@ -46,10 +47,10 @@ const Form = () => {
   };
 
   return (
-    <div>
+    <div className={state.theme ? styles.formDark : styles.formLight}>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="fullName">Nombre Completo:</label>
+        <div className={styles.formGroup}>
+          <label htmlFor="fullName">Complete Name:</label>
           <input
             type="text"
             id="fullName"
@@ -58,7 +59,7 @@ const Form = () => {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className={styles.formGroup}>
           <label htmlFor="email">Email:</label>
           <input
             type="email"
@@ -68,12 +69,12 @@ const Form = () => {
             onChange={handleChange}
           />
         </div>
-        <button type="submit">Enviar</button>
+        <button type="submit" className={styles.button}>Submit</button>
       </form>
 
-      {errors && <p style={{ color: 'red' }}>Please verify your information again</p>}
+      {errors && <p className={styles.errorMessage}>Please verify your information again</p>}
 
-      {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
+      {successMessage && <p className={styles.successMessage}>{successMessage}</p>}
     </div>
   );
 };

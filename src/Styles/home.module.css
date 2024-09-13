@@ -1,7 +1,7 @@
 .homeLight {
     background-color: #f8f9fa;
     color: #2b2d42;
-    min-height: 100vh;
+    min-height: 76vh;
     padding: 20px;
     text-align: center;
   }
@@ -9,7 +9,7 @@
   .homeDark {
     background-color: #1a1a2e;
     color: #eaeaea;
-    min-height: 100vh;
+    min-height: 76vh;
     padding: 20px;
     text-align: center;
   }
