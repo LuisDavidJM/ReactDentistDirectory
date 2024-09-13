@@ -9,15 +9,13 @@ export const initialState = {theme: true, favs: lsFavs, dentists: []}
 export const ContextGlobal = createContext(undefined);
 
 export const ContextProvider = ({ children }) => {
-  // const [favs, setFavs] = useState(lsFavs)
-  // const [dentists, setDentists] = useState([])
+
   const [state, dispatch] = useReducer(reducer, initialState)
   const url = "https://jsonplaceholder.typicode.com/users"
 
   useEffect(() => {
     axios(url).then((res) => {
       console.log(res.data)
-      //setDentists(res.data)
       dispatch({type: "GET_DENTISTS", payload: res.data})
     })
   },[])

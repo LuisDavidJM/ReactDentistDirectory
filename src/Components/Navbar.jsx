@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom';
 import styles from '../Styles/navbar.module.css';
 import { ContextGlobal } from './utils/global.context';
 
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
-
 const Navbar = () => {
-  //const { theme, toggleTheme } = useContext(ContextGlobal);
+  const { state, dispatch } = useContext(ContextGlobal);
+
+  const toggleTheme = () => {
+    dispatch({ type: 'TOGGLE_THEME' });
+  };
 
   return (
-    //<nav className={theme === 'dark' ? styles.navbarDark : styles.navbarLight}>
-    <nav>
+    <nav className={state.theme ? styles.navbarDark : styles.navbarLight}>
       <ul className={styles.ul}>
         <li className={styles.li}>
           <Link to="/home">Home</Link>
@@ -22,8 +23,8 @@ const Navbar = () => {
           <Link to="/favs">Favorites</Link>
         </li>
       </ul>
-      <button className={styles.button}>
-        Change theme
+      <button className={state.theme ? styles.buttonDark : styles.buttonLight} onClick={toggleTheme}>
+      {state.theme ? "Dark Mode" : "Light Mode"}
       </button>
     </nav>
   )

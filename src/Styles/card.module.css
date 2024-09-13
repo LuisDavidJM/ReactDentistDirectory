@@ -1,0 +1,104 @@
+.cardLight {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    padding: 0.5rem 1.5rem 20px 1.5rem;
+    border: 2.5px solid rgb(136, 136, 136);
+    background-color: #ebeaea;
+    color: #2b2d42;
+    border-radius: 8px;
+    transition: border 0.3s, transform 0.3s;
+  }
+  
+  .cardDark {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    padding: 0.5rem 1.5rem 20px 1.5rem;
+    border: 2.5px solid rgb(136, 136, 136);
+    background-color: #141421;
+    color: #eaeaea;
+    border-radius: 8px;
+    transition: border 0.3s, transform 0.3s;
+  }
+  
+  .cardLight:hover, .cardDark:hover {
+    border: 0.5px solid rgb(206, 217, 142);
+    transform: scale(1.05);
+  }
+  h2 {
+    margin-bottom: 5px;
+    margin-top: 0px;
+  }
+  
+  p {
+    margin-top: 0;
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  .cardLinkLight {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  
+  .cardLinkDark {
+    text-decoration: none;
+    color: #fca311;
+    font-weight: 500;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  
+  .cardLinkLight:hover {
+    color: #0056b3;
+  }
+  
+  .cardLinkDark:hover {
+    color: #e07a00;
+  }
+  
+  .favButtonLight {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .favButtonDark {
+    background-color: #fca311;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .favButtonLight:hover {
+    background-color: #0056b3;
+  }
+  
+  .favButtonDark:hover {
+    background-color: #e07a00;
+  }
+  

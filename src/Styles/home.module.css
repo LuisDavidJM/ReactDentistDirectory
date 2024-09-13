@@ -1,0 +1,26 @@
+.homeLight {
+    background-color: #f8f9fa;
+    color: #2b2d42;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .homeDark {
+    background-color: #1a1a2e;
+    color: #eaeaea;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .cardGrid{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+    width: 90vw;
+    height: auto;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+  
