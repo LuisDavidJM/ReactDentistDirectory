@@ -15,7 +15,7 @@ const Card = ({ dentist }) => {
     <div className={state.theme ? styles.cardDark : styles.cardLight}>
         <h2>{dentist.name}</h2>
         <p>{dentist.username}</p>
-        <img src="../../public/images/doctor.jpg" alt="Dentist" />
+        <img src="../assets/doctor.jpg" alt="Dentist" />
         <Link to={"/dentist/" + dentist.id} className={state.theme ? styles.cardLinkDark : styles.cardLinkLight}>View Details</Link>
         <button onClick={addFav} className={state.theme ? styles.favButtonDark : styles.favButtonLight}>{isFav ? "Remove fav" : "Add fav"}</button>
     </div>
