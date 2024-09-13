@@ -5,7 +5,10 @@ export const initialState = {theme: "", data: []}
 
 export const ContextGlobal = createContext(undefined);
 
+const lsFavs = JSON.parse(localStorage.getItem('favs')) || [];
+
 export const ContextProvider = ({ children }) => {
+  const [favs, setFavs] = useState(lsFavs)
   const [dentists, setDentists] = useState([])
   const url = "https://jsonplaceholder.typicode.com/users"
 
@@ -16,8 +19,12 @@ export const ContextProvider = ({ children }) => {
     })
   },[])
 
+  useEffect(() => {
+    localStorage.setItem('favs', JSON.stringify(favs))
+  }, [favs])
+
   return (
-    <ContextGlobal.Provider value={{dentists}}>
+    <ContextGlobal.Provider value={{dentists, favs, setFavs}}>
       {children}
     </ContextGlobal.Provider>
   );
