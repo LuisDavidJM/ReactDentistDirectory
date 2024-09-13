@@ -1,30 +1,33 @@
 import axios from "axios";
-import { createContext, useContext, useEffect, useState } from "react";
-
-export const initialState = {theme: "", data: []}
-
-export const ContextGlobal = createContext(undefined);
+import { createContext, useContext, useEffect, useReducer, useState } from "react";
+import { reducer } from "../../reducers/reducer";
 
 const lsFavs = JSON.parse(localStorage.getItem('favs')) || [];
 
+export const initialState = {theme: true, favs: lsFavs, dentists: []}
+
+export const ContextGlobal = createContext(undefined);
+
 export const ContextProvider = ({ children }) => {
-  const [favs, setFavs] = useState(lsFavs)
-  const [dentists, setDentists] = useState([])
+  // const [favs, setFavs] = useState(lsFavs)
+  // const [dentists, setDentists] = useState([])
+  const [state, dispatch] = useReducer(reducer, initialState)
   const url = "https://jsonplaceholder.typicode.com/users"
 
   useEffect(() => {
     axios(url).then((res) => {
       console.log(res.data)
-      setDentists(res.data)
+      //setDentists(res.data)
+      dispatch({type: "GET_DENTISTS", payload: res.data})
     })
   },[])
 
   useEffect(() => {
-    localStorage.setItem('favs', JSON.stringify(favs))
-  }, [favs])
+    localStorage.setItem('favs', JSON.stringify(state.favs))
+  }, [state.favs])
 
   return (
-    <ContextGlobal.Provider value={{dentists, favs, setFavs}}>
+    <ContextGlobal.Provider value={{state, dispatch}}>
       {children}
     </ContextGlobal.Provider>
   );
