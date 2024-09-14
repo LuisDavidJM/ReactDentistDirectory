@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
 import axios from 'axios'
-
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+import styles from "../Styles/home.module.css"
+import { useContextGlobal } from '../Components/utils/global.context'
 
 const Detail = () => {
+  const { state } = useContextGlobal()
   const [detail, setDetail] = useState({})
   const { id } = useParams();
   
@@ -19,12 +19,13 @@ const Detail = () => {
   },[])
 
   return (
-    <>
+    <main className={state.theme ? styles.homeDark : styles.homeLight}>
       <h1>{detail.name}</h1>
+      <img style={{width: '300px'}} src="/images/doctor.jpg" alt="Dentist" />
       <h2>{detail.email}</h2>
       <h3>{detail.phone}</h3>
       <h3>{detail.website}</h3>
-    </>
+    </main>
   )
 }
 
